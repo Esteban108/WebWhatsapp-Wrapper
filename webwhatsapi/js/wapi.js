@@ -780,6 +780,8 @@ window.WAPI.sendMessage = function (id, message, done) {
     var chat = WAPI.getChat(id);
     if (chat !== undefined) {
         if (done !== undefined) {
+            chat.sendMessage(message);
+            
             // Fix from https://github.com/mukulhase/WebWhatsapp-Wrapper/pull/1003#issuecomment-785545951
             // .then(function () {
             function checkmessage() {
@@ -811,7 +813,7 @@ window.WAPI.sendMessage = function (id, message, done) {
             } // );
 
             checkmessage();
-
+            
             return true;
         } else {
             chat.sendMessage(message);
